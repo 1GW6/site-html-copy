@@ -3,14 +3,404 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact - GradGurus</title>
+  <title>Contact Us - GradGurus</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+    }
+
+    header {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 2rem;
+      text-align: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    header h1 {
+      color: #667eea;
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      color: #666;
+      font-size: 1.1rem;
+    }
+
+    main {
+      max-width: 1200px;
+      margin: 3rem auto;
+      padding: 0 2rem;
+    }
+
+    .contact-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .contact-info,
+    .contact-form {
+      background: white;
+      padding: 2.5rem;
+      border-radius: 12px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    }
+
+    .contact-info h2,
+    .contact-form h2 {
+      color: #667eea;
+      margin-bottom: 1.5rem;
+      font-size: 1.8rem;
+    }
+
+    .info-item {
+      margin-bottom: 1.5rem;
+      padding-left: 2.5rem;
+      position: relative;
+    }
+
+    .info-item::before {
+      content: '📍';
+      position: absolute;
+      left: 0;
+      font-size: 1.5rem;
+    }
+
+    .info-item.hours::before {
+      content: '🕒';
+    }
+
+    .info-item h3 {
+      color: #444;
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .info-item p {
+      color: #666;
+      line-height: 1.8;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: #444;
+      font-weight: 500;
+      font-size: 1rem;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 0.875rem;
+      border: 2px solid #e0e0e0;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-family: inherit;
+      transition: border-color 0.3s ease;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: #667eea;
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .form-help {
+      font-size: 0.875rem;
+      color: #888;
+      margin-top: 0.25rem;
+    }
+
+    .required {
+      color: #e74c3c;
+    }
+
+    .submit-btn {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 1rem 2.5rem;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      width: 100%;
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+    }
+
+    .submit-btn:active {
+      transform: translateY(0);
+    }
+
+    .map-section {
+      background: white;
+      padding: 2.5rem;
+      border-radius: 12px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      margin-bottom: 3rem;
+    }
+
+    .map-section h2 {
+      color: #667eea;
+      margin-bottom: 1.5rem;
+      font-size: 1.8rem;
+    }
+
+    .map-container {
+      width: 100%;
+      height: 400px;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 2px solid #e0e0e0;
+    }
+
+    .map-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .directions {
+      background: white;
+      padding: 2.5rem;
+      border-radius: 12px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      margin-bottom: 3rem;
+    }
+
+    .directions h2 {
+      color: #667eea;
+      margin-bottom: 1.5rem;
+      font-size: 1.8rem;
+    }
+
+    .directions ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .directions li {
+      padding: 0.75rem 0;
+      padding-left: 2rem;
+      position: relative;
+      color: #666;
+      line-height: 1.8;
+    }
+
+    .directions li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: #667eea;
+      font-weight: bold;
+    }
+
+    .cta-section {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      padding: 3rem;
+      border-radius: 12px;
+      text-align: center;
+      color: white;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    }
+
+    .cta-section h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .cta-section p {
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+      opacity: 0.95;
+    }
+
+    .cta-btn {
+      background: white;
+      color: #667eea;
+      padding: 1rem 3rem;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+    }
+
+    @media (max-width: 768px) {
+      .contact-container {
+        grid-template-columns: 1fr;
+      }
+
+      header h1 {
+        font-size: 2rem;
+      }
+
+      main {
+        margin: 2rem auto;
+        padding: 0 1rem;
+      }
+
+      .contact-info,
+      .contact-form,
+      .map-section,
+      .directions,
+      .cta-section {
+        padding: 1.5rem;
+      }
+
+      .map-container {
+        height: 300px;
+      }
+    }
+  </style>
 </head>
 <body>
   <header>
-    <h1>Contact</h1>
+    <h1>Contact GradGurus</h1>
+    <p>We're here to help you succeed. Reach out to us today!</p>
   </header>
+
   <main>
-    <p>This is the Contact page.</p>
+    <div class="contact-container">
+      <!-- Contact Information -->
+      <div class="contact-info">
+        <h2>Get In Touch</h2>
+        
+        <div class="info-item">
+          <h3>Our Address</h3>
+          <p>
+            10060 Jasper Ave Tower 1<br>
+            Suite 2020<br>
+            Edmonton, AB T5J 3R8<br>
+            Canada
+          </p>
+        </div>
+
+        <div class="info-item hours">
+          <h3>Business Hours</h3>
+          <p>
+            Monday - Friday: 9:00 AM - 6:00 PM<br>
+            Saturday: 10:00 AM - 4:00 PM<br>
+            Sunday: Closed
+          </p>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="contact-form">
+        <h2>Send Us a Message</h2>
+        <form action="#" method="POST" aria-label="Contact form">
+          <div class="form-group">
+            <label for="name">Full Name <span class="required">*</span></label>
+            <input 
+              type="text" 
+              id="name" 
+              name="name" 
+              required 
+              aria-required="true"
+              placeholder="Enter your full name"
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="subject">Subject <span class="required">*</span></label>
+            <select id="subject" name="subject" required aria-required="true">
+              <option value="">Select a subject</option>
+              <option value="general">General Inquiry</option>
+              <option value="tutoring">Tutoring Services</option>
+              <option value="programs">Program Information</option>
+              <option value="support">Student Support</option>
+              <option value="partnership">Partnership Opportunities</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message <span class="required">*</span></label>
+            <textarea 
+              id="message" 
+              name="message" 
+              required 
+              aria-required="true"
+              placeholder="Tell us how we can help you..."
+            ></textarea>
+            <span class="form-help">Please provide as much detail as possible</span>
+          </div>
+
+          <button type="submit" class="submit-btn" aria-label="Submit contact form">Send Message</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Map Section -->
+    <div class="map-section">
+      <h2>Find Us</h2>
+      <div class="map-container">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2370.2966447843774!2d-113.49194842347988!3d53.54129987234698!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x53a0224c55555555%3A0xf00d00ddeadbeef!2s10060%20Jasper%20Ave%2C%20Edmonton%2C%20AB%20T5J%203R8!5e0!3m2!1sen!2sca!4v1234567890123!5m2!1sen!2sca"
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade"
+          title="GradGurus office location map"
+          aria-label="Interactive map showing GradGurus office at 10060 Jasper Ave, Edmonton"
+        ></iframe>
+      </div>
+    </div>
+
+    <!-- Directions Section -->
+    <div class="directions">
+      <h2>How to Get Here</h2>
+      <ul>
+        <li><strong>By Car:</strong> Downtown Edmonton, ample parking available in the Tower 1 parkade. Entrance on 100 Street.</li>
+        <li><strong>By Transit:</strong> Multiple bus routes stop at Jasper Avenue. Corona LRT station is a 5-minute walk.</li>
+        <li><strong>By Bike:</strong> Bike racks available at the building entrance on Jasper Avenue.</li>
+        <li><strong>Accessibility:</strong> Fully accessible building with wheelchair ramps and elevators to Suite 2020.</li>
+      </ul>
+    </div>
+
+    <!-- Call to Action -->
+    <div class="cta-section">
+      <h2>Ready to Start Your Journey?</h2>
+      <p>Join thousands of students who have achieved their academic goals with GradGurus</p>
+      <button class="cta-btn" onclick="document.getElementById('name').focus(); window.scrollTo({top: 0, behavior: 'smooth'});">Get Started Today</button>
+    </div>
   </main>
 </body>
 </html>
