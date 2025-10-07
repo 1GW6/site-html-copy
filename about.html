@@ -1,16 +1,243 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About - GradGurus</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://unpkg.com/feather-icons"></script>
+  <style>
+    :root { --primary:#4F46E5; --secondary:#10B981; --accent:#F59E0B; }
+    body { font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; }
+    .hero-gradient { background: linear-gradient(135deg, rgba(79,70,229,0.95) 0%, rgba(16,185,129,0.9) 100%); }
+    .glass { backdrop-filter: blur(10px); background: rgba(255,255,255,0.1); }
+  </style>
 </head>
-<body>
-  <header>
-    <h1>About</h1>
+<body class="bg-gray-50 text-gray-900">
+  <!-- Header -->
+  <header class="sticky top-0 z-40 bg-white/90 backdrop-blur border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2 font-extrabold text-xl text-gray-900">
+        <i class="text-[var(--primary)]" data-feather="award"></i>
+        GradGurus
+      </a>
+      <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
+        <a class="hover:text-[var(--primary)]" href="/services.html">Services</a>
+        <a class="hover:text-[var(--primary)]" href="/success-stories.html">Success Stories</a>
+        <a class="hover:text-[var(--primary)]" href="/about.html">About</a>
+        <a class="hover:text-[var(--primary)]" href="/contact.html">Contact</a>
+        <a class="inline-flex items-center gap-2 px-4 py-2 rounded-md text-white bg-[var(--primary)] hover:bg-indigo-700 shadow-sm" href="/get-started.html">
+          <i data-feather="arrow-right"></i> Get Started
+        </a>
+      </nav>
+    </div>
   </header>
-  <main>
-    <p>This is the About page.</p>
-  </main>
-</body>
-</html>
+
+  <!-- Hero -->
+  <section class="hero-gradient text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
+      <div class="grid lg:grid-cols-2 gap-10 items-center">
+        <div>
+          <p class="uppercase tracking-wider text-indigo-100 font-semibold">About GradGurus</p>
+          <h1 class="mt-2 text-4xl sm:text-5xl font-extrabold leading-tight">We Accelerate Academic Journeys and Launch Careers</h1>
+          <p class="mt-4 text-indigo-100 text-lg">We’re an outcomes-driven team helping students finish faster, publish stronger, and step confidently into high-growth careers.</p>
+          <div class="mt-6 flex flex-wrap gap-3">
+            <a href="#team" class="inline-flex items-center gap-2 px-5 py-3 rounded-md text-primary bg-white hover:bg-gray-100 font-semibold">
+              Meet the Team <i data-feather="users"></i>
+            </a>
+            <a href="/get-started.html" class="inline-flex items-center gap-2 px-5 py-3 rounded-md border border-white/70 hover:bg-white/10 font-semibold text-white">
+              Get Started <i data-feather="arrow-right"></i>
+            </a>
+          </div>
+        </div>
+        <div class="relative">
+          <div class="glass rounded-2xl p-6 shadow-xl">
+            <div class="grid grid-cols-2 gap-4">
+              <div class="bg-white/90 rounded-lg p-4 text-gray-900 shadow-sm">
+                <div class="flex items-center gap-3"><i class="text-[var(--primary)]" data-feather="target"></i><span class="font-semibold">Student-First</span></div>
+                <p class="text-sm text-gray-600 mt-1">Every plan is tailored to your goals.</p>
+              </div>
+              <div class="bg-white/90 rounded-lg p-4 text-gray-900 shadow-sm">
+                <div class="flex items-center gap-3"><i class="text-[var(--secondary)]" data-feather="book-open"></i><span class="font-semibold">Research-Backed</span></div>
+                <p class="text-sm text-gray-600 mt-1">Academic methods, real-world results.</p>
+              </div>
+              <div class="bg-white/90 rounded-lg p-4 text-gray-900 shadow-sm">
+                <div class="flex items-center gap-3"><i class="text-[var(--accent)]" data-feather="clock"></i><span class="font-semibold">Faster Path</span></div>
+                <p class="text-sm text-gray-600 mt-1">Save time without sacrificing quality.</p>
+              </div>
+              <div class="bg-white/90 rounded-lg p-4 text-gray-900 shadow-sm">
+                <div class="flex items-center gap-3"><i class="text-[var(--primary)]" data-feather="trending-up"></i><span class="font-semibold">Career-Ready</span></div>
+                <p class="text-sm text-gray-600 mt-1">Skills and assets employers value.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Introduction -->
+  <section id="team" class="bg-white py-16 sm:py-20 border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-10 items-start">
+        <div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold">Our Story</h2>
+          <p class="mt-4 text-gray-600 text-lg">GradGurus was founded in Edmonton, Alberta by two local young immigrants who believed students deserve clearer roadmaps, stronger mentorship, and faster paths to meaningful work.</p>
+          <p class="mt-3 text-gray-600">We started by helping classmates navigate credit transfers, research milestones, and career prep. Today, we partner with students across programs to optimize degrees, publish with confidence, and connect with opportunities.</p>
+        </div>
+        <div class="grid sm:grid-cols-2 gap-6">
+          <div class="rounded-xl border border-gray-200 p-5 bg-white shadow-sm">
+            <div class="flex items-center gap-3">
+              <div class="h-10 w-10 rounded-lg bg-indigo-50 text-[var(--primary)] flex items-center justify-center"><i data-feather="map"></i></div>
+              <div>
+                <p class="font-semibold">Edmonton Roots</p>
+                <p class="text-sm text-gray-600">Proudly serving students across Alberta and beyond.</p>
+              </div>
+            </div>
+          </div>
+          <div class="rounded-xl border border-gray-200 p-5 bg-white shadow-sm">
+            <div class="flex items-center gap-3">
+              <div class="h-10 w-10 rounded-lg bg-emerald-50 text-[var(--secondary)] flex items-center justify-center"><i data-feather="heart"></i></div>
+              <div>
+                <p class="font-semibold">Immigrant-Led</p>
+                <p class="text-sm text-gray-600">Built on resilience, community, and upward mobility.</p>
+              </div>
+            </div>
+          </div>
+          <div class="rounded-xl border border-gray-200 p-5 bg-white shadow-sm">
+            <div class="flex items-center gap-3">
+              <div class="h-10 w-10 rounded-lg bg-amber-50 text-[var(--accent)] flex items-center justify-center"><i data-feather="users"></i></div>
+              <div>
+                <p class="font-semibold">Mentor Network</p>
+                <p class="text-sm text-gray-600">Access specialists across disciplines and industries.</p>
+              </div>
+            </div>
+          </div>
+          <div class="rounded-xl border border-gray-200 p-5 bg-white shadow-sm">
+            <div class="flex items-center gap-3">
+              <div class="h-10 w-10 rounded-lg bg-indigo-50 text-[var(--primary)] flex items-center justify-center"><i data-feather="award"></i></div>
+              <div>
+                <p class="font-semibold">Outcome Focus</p>
+                <p class="text-sm text-gray-600">Graduate sooner, publish stronger, land better offers.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission Statement -->
+  <section class="py-16 sm:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto">
+        <h2 class="text-3xl sm:text-4xl font-extrabold">Our Mission</h2>
+        <p class="mt-3 text-gray-600 text-lg">To demystify higher education and accelerate student success with personalized strategy, research excellence, and career readiness.</p>
+      </div>
+      <div class="mt-10 grid gap-6 sm:grid-cols-3">
+        <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+          <div class="h-12 w-12 rounded-lg bg-indigo-50 text-[var(--primary)] flex items-center justify-center"><i data-feather="compass"></i></div>
+          <h3 class="mt-4 font-semibold text-lg">Clarity</h3>
+          <p class="mt-2 text-gray-600">Give students a clear roadmap from day one to graduation.</p>
+        </div>
+        <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+          <div class="h-12 w-12 rounded-lg bg-emerald-50 text-[var(--secondary)] flex items-center justify-center"><i data-feather="zap"></i></div>
+          <h3 class="mt-4 font-semibold text-lg">Velocity</h3>
+          <p class="mt-2 text-gray-600">Reduce time-to-degree without compromising academic rigor.</p>
+        </div>
+        <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+          <div class="h-12 w-12 rounded-lg bg-amber-50 text-[var(--accent)] flex items-center justify-center"><i data-feather="briefcase"></i></div>
+          <h3 class="mt-4 font-semibold text-lg">Outcomes</h3>
+          <p class="mt-2 text-gray-600">Build portfolios, publications, and networks that open doors.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Values -->
+  <section class="bg-white py-16 sm:py-20 border-t border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto">
+        <h2 class="text-3xl sm:text-4xl font-extrabold">Our Values</h2>
+        <p class="mt-3 text-gray-600">Principles that guide every engagement.</p>
+      </div>
+      <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div class="rounded-xl border border-gray-200 p-6 bg-white shadow-sm">
+          <div class="flex items-start gap-3">
+            <i class="text-[var(--primary)]" data-feather="shield"></i>
+            <div>
+              <p class="font-semibold">Integrity</p>
+              <p class="text-sm text-gray-600">Transparent guidance and ethical standards.</p>
+            </div>
+          </div>
+        </div>
+        <div class="rounded-xl border border-gray-200 p-6 bg-white shadow-sm">
+          <div class="flex items-start gap-3">
+            <i class="text-[var(--secondary)]" data-feather="user-check"></i>
+            <div>
+              <p class="font-semibold">Accountability</p>
+              <p class="text-sm text-gray-600">We measure progress and own results.</p>
+            </div>
+          </div>
+        </div>
+        <div class="rounded-xl border border-gray-200 p-6 bg-white shadow-sm">
+          <div class="flex items-start gap-3">
+            <i class="text-[var(--accent)]" data-feather="layers"></i>
+            <div>
+              <p class="font-semibold">Rigor</p>
+              <p class="text-sm text-gray-600">Structured methods, research-quality work.</p>
+            </div>
+          </div>
+        </div>
+        <div class="rounded-xl border border-gray-200 p-6 bg-white shadow-sm">
+          <div class="flex items-start gap-3">
+            <i class="text-[var(--secondary)]" data-feather="heart"></i>
+            <div>
+              <p class="font-semibold">Empathy</p>
+              <p class="text-sm text-gray-600">Support for diverse paths and backgrounds.</p>
+            </div>
+          </div>
+        </div>
+        <div class="rounded-xl border border-gray-200 p-6 bg-white shadow-sm">
+          <div class="flex items-start gap-3">
+            <i class="text-[var(--primary)]" data-feather="target"></i>
+            <div>
+              <p class="font-semibold">Focus</p>
+              <p class="text-sm text-gray-600">Keep outcomes front and center.</p>
+            </div>
+          </div>
+        </div>
+        <div class="rounded-xl border border-gray-200 p-6 bg-white shadow-sm">
+          <div class="flex items-start gap-3">
+            <i class="text-[var(--accent)]" data-feather="smile"></i>
+            <div>
+              <p class="font-semibold">Belonging</p>
+              <p class="text-sm text-gray-600">An inclusive community for every student.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Achievements -->
+  <section class="py-16 sm:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto">
+        <h2 class="text-3xl sm:text-4xl font-extrabold">Achievements</h2>
+        <p class="mt-3 text-gray-600">Milestones that reflect our students' success.</p>
+      </div>
+      <div class="mt-10 grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="rounded-xl border border-gray-200 p-5 bg-white shadow-sm text-center">
+          <p class="text-3xl font-extrabold text-[var(--primary)]">10k+</p>
+          <p class="text-sm text-gray-600">Students supported</p>
+        </div>
+        <div class="rounded-xl border border-gray-200 p-5 bg-white shadow-sm text-center">
+          <p class="text-3xl font-extrabold text-[var(--secondary)]">92%</p>
+          <p class="text-sm text-gray-600">Placement rate</p>
+        </div>
+        <div class="rounded-xl border border-gray-200 p-5 bg-white shadow-sm text-center">
+          <p class="text-3xl font-extrabold text-[var(--accent)]">
