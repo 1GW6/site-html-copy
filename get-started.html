@@ -1,16 +1,190 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Get Started - GradGurus</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Get Started — GradGurus</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+  <style>
+    :root{ --bg:#0b1020; --primary:#6ee7ff; --accent:#9bff80; --ink:#e8f1ff; --muted:#9aa7bd; --card:#121735; --good:#7cf0a0; }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:linear-gradient(180deg,#070b17 0%,#0b1020 40%,#0e1532 100%);color:var(--ink);font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1180px;margin:0 auto;padding:24px}
+
+    .hero{position:relative;overflow:hidden;border-bottom:1px solid rgba(110,231,255,.15)}
+    .hero-inner{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center;min-height:72vh}
+    .eyebrow{display:inline-block;letter-spacing:.12em;text-transform:uppercase;font-weight:800;font-size:12px;color:var(--primary);background:rgba(110,231,255,.12);border:1px solid rgba(110,231,255,.25);padding:6px 10px;border-radius:999px}
+    .headline{font-family:Montserrat,Inter,sans-serif;font-weight:900;line-height:1.05;font-size: clamp(36px,6vw,72px);margin:14px 0}
+    .headline b{background:linear-gradient(90deg,var(--primary),#8cf0ff,var(--accent));-webkit-background-clip:text;background-clip:text;color:transparent}
+    .sub{font-size: clamp(16px,2.2vw,20px);color:var(--muted);max-width:56ch}
+    .hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:22px}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:14px 20px;border-radius:14px;font-weight:800;letter-spacing:.02em;cursor:pointer;border:1px solid transparent;transition:.25s transform,.25s box-shadow,.25s background}
+    .btn-primary{background:linear-gradient(180deg,#59e2ff,#2bc3ff);color:#001627;box-shadow:0 10px 30px rgba(43,195,255,.25)}
+    .btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 34px rgba(43,195,255,.34)}
+    .btn-ghost{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.14);color:var(--ink)}
+    .badge-row{display:flex;gap:16px;flex-wrap:wrap;margin-top:28px;opacity:.9}
+    .cred-badge{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);padding:10px 12px;border-radius:12px;font-size:13px}
+    .glow{position:absolute;inset:-20% -10% auto auto;width:58vw;height:58vw;background:radial-gradient(closest-side, rgba(110,231,255,.18), rgba(110,231,255,0) 70%);filter:blur(12px);pointer-events:none}
+    .statbar{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:26px}
+    .stat{background:linear-gradient(180deg,#0e173a,#0b1230);border:1px solid rgba(255,255,255,.08);padding:16px;border-radius:14px;text-align:center}
+    .stat h3{margin:0;font-family:Montserrat;font-weight:900;font-size: clamp(22px,3.3vw,36px)}
+    .stat p{margin:6px 0 0;color:var(--muted);font-size:13px}
+
+    .trust{background:linear-gradient(180deg,#0e1532 0%,#0a112b 100%);border-top:1px solid rgba(255,255,255,.06)}
+    .trust .row{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+    .trust .card{background:var(--card);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:18px}
+    .trust h3{font-family:Montserrat;font-weight:800;margin:0 0 8px;font-size:18px}
+    .trust p{margin:0;color:var(--muted);font-size:14px}
+
+    .process{padding:64px 0}
+    .process .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+    .step{background:linear-gradient(180deg,#11183d,#0b1230);border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:20px;position:relative}
+    .step .num{position:absolute;top:-12px;left:-12px;background:var(--primary);color:#001627;font-weight:900;border-radius:12px;padding:6px 10px;font-size:12px}
+    .step h4{margin:8px 0 6px;font-family:Montserrat;font-weight:800;font-size:18px}
+    .step p{margin:0;color:var(--muted);font-size:14px}
+
+    .results{padding:64px 0;background:linear-gradient(180deg,#090f24 0,#0a132a 100%);border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06)}
+    .results .row{display:grid;grid-template-columns:1.2fr .8fr;gap:22px;align-items:center}
+    .chart{background:conic-gradient(from 220deg at 50% 50%, var(--good) 0 220deg, rgba(255,255,255,.1) 0 360deg);min-height:280px;border-radius:22px;border:1px solid rgba(255,255,255,.08);position:relative}
+    .chart::after{content:"Before → After";position:absolute;bottom:10px;right:12px;color:var(--muted);font-size:12px}
+    .kpis{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+    .kpi{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);padding:16px;border-radius:14px}
+    .kpi h5{margin:0 0 6px;font-family:Montserrat;font-size:14px;font-weight:800;color:var(--ink)}
+    .kpi p{margin:0;color:var(--muted);font-size:13px}
+
+    .social-proof{padding:64px 0}
+    .quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .quote{background:linear-gradient(180deg,#0e173a,#0b1230);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:18px}
+    .avatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#59e2ff,#9bff80);display:inline-block}
+    .person{display:flex;align-items:center;gap:10px;margin:10px 0 6px}
+    .person .name{font-weight:700}
+    .person .role{color:var(--muted);font-size:12px}
+
+    .cta{padding:72px 0}
+    .cta .wrap{background:linear-gradient(135deg, rgba(89,226,255,.18), rgba(155,255,128,.18));border:1px solid rgba(110,231,255,.28);border-radius:22px;padding:28px;display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center}
+    .cta h3{margin:0;font-family:Montserrat;font-weight:900;font-size: clamp(24px,3.4vw,42px)}
+
+    @media (max-width: 900px){
+      .hero-inner{grid-template-columns:1fr;min-height:auto;padding:40px 0}
+      .results .row{grid-template-columns:1fr}
+      .process .grid{grid-template-columns:1fr 1fr}
+      .quotes{grid-template-columns:1fr 1fr}
+      .trust .row{grid-template-columns:1fr 1fr}
+    }
+    @media (max-width: 600px){
+      .process .grid,.quotes,.trust .row{grid-template-columns:1fr}
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <h1>Get Started</h1>
-  </header>
-  <main>
-    <p>This is the Get Started page.</p>
-  </main>
-</body>
-</html>
+  <section class="hero">
+    <div class="glow"></div>
+    <div class="container hero-inner">
+      <div>
+        <span class="eyebrow">Trusted by ambitious students worldwide</span>
+        <h1 class="headline">Build the Career You Deserve. <b>Start Winning Today.</b></h1>
+        <p class="sub">At GradGurus, we turn academic potential into unstoppable outcomes—admissions, scholarships, internships, and elite job offers. Our proven systems, expert mentors, and relentless accountability unlock the future you want.</p>
+        <div class="hero-cta">
+          <a href="#process" class="btn btn-primary">Get Started Now →</a>
+          <a href="#results" class="btn btn-ghost">See Real Results</a>
+        </div>
+        <div class="badge-row">
+          <div class="cred-badge">✔ 98% program completion</div>
+          <div class="cred-badge">★ 4.9/5 student satisfaction</div>
+          <div class="cred-badge">🏆 $4.2M+ in scholarships</div>
+          <div class="cred-badge">↗ 3x faster outcomes</div>
+        </div>
+        <div class="statbar">
+          <div class="stat"><h3>8,500+</h3><p>Students coached</p></div>
+          <div class="stat"><h3>72%</h3><p>Land Tier‑1 roles</p></div>
+          <div class="stat"><h3>6–12 wks</h3><p>Typical time to offer</p></div>
+        </div>
+      </div>
+      <div>
+        <div class="chart" role="img" aria-label="Before and after outcomes graphic"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="trust">
+    <div class="container">
+      <div class="row">
+        <div class="card">
+          <h3>Proven Playbooks</h3>
+          <p>Admissions essays, interview sprints, portfolio builds, and networking scripts that work.</p>
+        </div>
+        <div class="card">
+          <h3>Expert Mentors</h3>
+          <p>Coaches from FAANG, top labs, and elite universities guiding every step.</p>
+        </div>
+        <div class="card">
+          <h3>Accountability</h3>
+          <p>Weekly checkpoints and deliverables so momentum never stalls.</p>
+        </div>
+        <div class="card">
+          <h3>Career Signals</h3>
+          <p>Resume, LinkedIn, and project branding that attract interviews—fast.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="process" class="process">
+    <div class="container">
+      <span class="eyebrow">How it works</span>
+      <h2 class="headline" style="font-size: clamp(28px,4.5vw,56px)">Your Path to Results</h2>
+      <div class="grid">
+        <div class="step"><span class="num">Step 1</span><h4>Clarity Call</h4><p>Define targets and audit your profile to map the fastest route.</p></div>
+        <div class="step"><span class="num">Step 2</span><h4>Strategy Launch</h4><p>Customized plan: skills, projects, outreach cadence, and interview prep.</p></div>
+        <div class="step"><span class="num">Step 3</span><h4>Build &amp; Signal</h4><p>Ship portfolio wins and upgrade your resume and LinkedIn brand.</p></div>
+        <div class="step"><span class="num">Step 4</span><h4>Interview to Offer</h4><p>Mock loops, storytelling drills, and negotiation frameworks to close.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="results" class="results">
+    <div class="container results-inner">
+      <div class="row">
+        <div>
+          <span class="eyebrow">Measured impact</span>
+          <h2 class="headline" style="font-size: clamp(28px,4.5vw,56px)"><b>Real Outcomes</b> You Can Verify</h2>
+          <div class="kpis">
+            <div class="kpi"><h5>Offer Rate</h5><p>3.1× higher vs. baseline after 8 weeks of coaching.</p></div>
+            <div class="kpi"><h5>Comp Uplift</h5><p>Average +$28k first‑year packages; top decile +$65k.</p></div>
+            <div class="kpi"><h5>Admissions Wins</h5><p>Top‑20 admits in CS, Data, Bio, and Business programs.</p></div>
+            <div class="kpi"><h5>Scholarships</h5><p>$4.2M+ secured across merit and need‑based awards.</p></div>
+          </div>
+        </div>
+        <div>
+          <div class="chart" role="img" aria-label="Radar chart style visualization of improvements"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="social-proof">
+    <div class="container">
+      <span class="eyebrow">Success stories</span>
+      <h2 class="headline" style="font-size: clamp(28px,4.5vw,56px)">Students Who <b>Transformed</b> Their Path</h2>
+      <div class="quotes">
+        <figure class="quote">
+          <div class="person"><span class="avatar" aria-hidden="true"></span><div><div class="name">Amara K.</div><div class="role">CS Graduate → SWE @ Fortune 100</div></div></div>
+          <blockquote>“In 10 weeks I went from rejection after rejection to 5 interviews and 2 offers. The drills and outreach scripts were game‑changing.”</blockquote>
+        </figure>
+        <figure class="quote">
+          <div class="person"><span class="avatar" aria-hidden="true"></span><div><div class="name">Miguel R.</div><div class="role">Data Science Masters</div></div></div>
+          <blockquote>“Their resume teardown and project polish doubled my response rate. I signed a role at my first choice lab.”</blockquote>
+        </figure>
+        <figure class="quote">
+          <div class="person"><span class="avatar" aria-hidden="true"></span><div><div class="name">Priya S.</div><div class="role">Bioengineering → PhD admit + fellowship</div></div></div>
+          <blockquote>“The accountability and storytelling drills changed everything. I secured a fellowship and a research placement.”</blockquote>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="container">
+      <div class="wrap">
+        <h3>Ready to claim your next offer? <
