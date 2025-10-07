@@ -1,3 +1,1 @@
-# GradGurus
-
-Landing page and site code for GradGurus.
+# site-html-copy
